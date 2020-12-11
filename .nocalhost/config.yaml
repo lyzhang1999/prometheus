@@ -14,5 +14,5 @@ svcConfigs:
     sync:
     - ./
     pods:
-      "component=pushgateway"
+    - "component=pushgateway"
     command: ["kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`", "gradlew", "bootrun"]
