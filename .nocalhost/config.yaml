@@ -1,0 +1,18 @@
+appConfig:
+  name: prometheus
+  type: helm
+  resourcePath: .
+
+svcConfigs:
+  - name: prometheus-pushgateway
+    type: deployment
+    gitUrl: https://github.com/nocalhost/bookinfo-details.git
+    devLang: ruby  # java|go|node|php
+    devImage: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/ruby:2.7.1-slim  # 可选参数：自定义开发容器
+    workDir: /home/nocalhost-dev   # sidecar 和业务容器的公共目录，kubectl exec 进去就是家目录 k8s containers.workingDir
+    localWorkDir: /home/coding   # 插件自动拉代码并保存的本地工作空间
+    sync:
+    - ./
+    pods:
+      "component=pushgateway"
+    command: ["kill `ps -ef|grep -i gradlew| grep -v grep| awk '{print $2}'`", "gradlew", "bootrun"]
