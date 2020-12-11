@@ -11,4 +11,4 @@ services:
     syncDirs:
     - ./
     dependPodsLabelSelector:
-    - "component=pushgateway"
+    - "component=node-exporter"
