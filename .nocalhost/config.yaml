@@ -1,9 +1,9 @@
-name: promethues
+name: prometheus
 manifestType: helm
 resourcePath: ["."]
 
 services:
-  - name: promethues-pushgateway
+  - name: prometheus-pushgateway
     serviceType: deployment
     gitUrl: https://github.com/nocalhost/bookinfo-ratings.git
     devContainerImage: codingcorp-docker.pkg.coding.net/nocalhost/dev-images/node:12.18.1-slim
